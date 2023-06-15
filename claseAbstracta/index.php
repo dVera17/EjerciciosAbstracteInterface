@@ -13,11 +13,11 @@ abstract class CuentaBancaria{
 
 class CuentaCorriente extends CuentaBancaria{
     public function depositar(float $monto){
-
+        return $this->saldo += $monto;
     }
 
     public function retirar(float $monto){
-
+        return ($monto > $this->saldo) ? $this->saldo-=($monto + ($monto*0.10)) : $this->saldo-=$monto;
     }
 }
 
@@ -34,9 +34,5 @@ class CuentaAhorro extends CuentaBancaria{
         }
     }
 }
-
-$obj = new CuentaAhorro(100);
-print_r($obj->retirar(50));
-
 
 ?>
