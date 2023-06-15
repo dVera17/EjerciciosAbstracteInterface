@@ -35,4 +35,9 @@ class CuentaAhorro extends CuentaBancaria{
     }
 }
 
+$_DATA = json_decode(file_get_contents('php://input'), true);
+$obj = new CuentaAhorro($_DATA['saldo']);
+var_dump($obj);
+echo $obj->retirar(50);
+
 ?>
